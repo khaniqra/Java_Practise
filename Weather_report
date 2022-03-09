@@ -1,0 +1,29 @@
+//assign 2
+/*Design a class named weather report that holds a daily weather report with data members day_of_month,
+hightemp, lowtemp, amount_rain and amount_snow. Use different types of constructors to initialize the
+objects. Write a program to generate monthly report that displays average of each attribute. */
+
+//import java.util.Scanner;
+class Report{
+ String day;
+  int htemp,ltemp,rain,snow;
+
+  public
+    Report(String a, int h,int l, int r, int s){
+      day=a;
+      htemp=h;
+      ltemp=l;
+      rain=r;
+      snow=s;
+    }
+    void printData(){
+      System.out.println("Day: "+day + "\nHigh temp: " +htemp +"\nLow temp: "+ltemp+"\nRain amt: "+rain + "\nSnow amt: "+snow);
+    }
+}
+class Main {
+  public static void main(String[] args) {
+    Report A= new Report("Wed", 35, 20, 60, 25);
+    int[] high;
+    A.printData();
+  }
+}
