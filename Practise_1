@@ -1,0 +1,40 @@
+//access sepcifier
+
+class Demo{
+  // public //if we assign as public
+    int a,b; // by default var are private
+  public 
+
+  //constructor
+    Demo(int p,int q){
+      a=p;
+      b=q;
+    }
+  public
+  //member function
+    // void getData(int p,int q){
+    //   a=p;
+    //   b=q;
+    // }
+    void printData(){
+      System.out.println("a: "+ a + "\nb: " +b);
+    }
+}
+
+class Main {
+  public static void main(String[] args) {
+
+    //Direct access(as var are public they can be directly accessed)
+    // A.a=10; 
+    // A.b=20;
+
+    //access via member func
+   //Demo A= new Demo(); 
+     // A.getData(10,20);
+
+    //access via constructor
+    Demo A= new Demo(10,20);
+ 
+    A.printData();
+  }
+}
