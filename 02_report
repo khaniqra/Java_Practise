@@ -1,0 +1,69 @@
+//assign 2 Iqra Khan A154
+/*Design a class named weather report that holds a daily weather report with data members day_of_month,
+hightemp, lowtemp, amount_rain and amount_snow. Use different types of constructors to initialize the
+objects. Write a program to generate monthly report that displays average of each attribute. */
+
+import java.util.Scanner;
+public class Main{
+  int day_of_month;
+  float high_temp,low_temp,amt_rain,amt_snow;
+
+  public 
+    Main(){
+      day_of_month=0;
+      high_temp=0;
+      low_temp=0;
+      amt_rain=0;
+      amt_snow=0;
+    }
+    void getdata(){
+      Scanner s = new Scanner(System.in);
+
+      System.out.println("Enter day no: ");
+      day_of_month=s.nextInt();
+
+      System.out.println("Enter High temp: ");
+      high_temp=s.nextFloat();
+
+      System.out.println("Enter low temp: ");
+      low_temp=s.nextFloat();
+
+      System.out.println("Enter amt of rain: ");
+      amt_rain=s.nextFloat();
+
+      System.out.println("Enter amt of snow: ");
+      amt_snow=s.nextFloat();
+    }
+  public static void main(String args[]){
+    int n,i;
+    float HT=0,LT=0,AR=0,AS=0;
+
+    Scanner s = new Scanner(System.in);
+    System.out.println("How many days?: ");
+
+    n=s.nextInt();
+
+    Main[] w= new Main[n];
+
+    for(i=0;i<n;i++){
+      w[i]=new Main();
+      w[i].getdata();
+    }
+    for(i=0;i<n;i++){
+      HT=HT+w[i].high_temp;
+      LT=LT+w[i].low_temp;
+      AR=AR+w[i].amt_rain;
+      AS=AS+w[i].amt_snow;
+    }
+    HT=HT/n;
+    LT=LT/n;
+    AR=AR/n;
+    AS=AS/n;
+
+    System.out.println("The report is: ");
+    System.out.println("High temp: "+HT);
+    System.out.println("Low temp: "+LT);
+    System.out.println("Amt of rain: "+AR);
+    System.out.println("Amt of snow: "+AS);
+  }
+}
