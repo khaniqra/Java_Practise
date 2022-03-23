@@ -1,0 +1,69 @@
+//assign 1 Iqra Khan A154
+/*Design a class ‘Complex’ with data members for real and imaginary part. Provide default and
+Parameterized constructors. Write a program to perform arithmetic operations of two complex numbers.*/
+class complex{
+    int real;
+    int img;
+    public
+        complex(int a, int b){
+            real=a;
+            img=b;
+        }
+    complex(){
+    
+  }
+        void printc(){
+            System.out.println(real + "+" + img+"i");
+        }
+        complex add(complex A, complex B){
+            complex temp=new complex();
+            temp.real=A.real+B.real;
+            temp.img=A.img+B.img;
+            return temp;
+        }
+  complex subtract(complex A, complex B){
+            complex temp=new complex();
+            temp.real=A.real-B.real;
+            temp.img=A.img-B.img;
+            return temp;
+        }
+        complex multiply(complex A, complex B){
+            complex temp=new complex();
+            temp.real=(A.real*B.real)-(A.img*B.img);
+            temp.img=(A.real*B.img)+(A.img*B.real);
+            return temp;
+        }
+        //a+ib/c+id
+        complex divide(complex A, complex B){
+            complex temp=new complex();
+            temp.real=((A.real*B.real)+(A.img*B.img)/(B.real^2+B.img^2));
+            temp.real=((A.img*B.real)-(A.real*B.img)/(B.real^2+B.img^2));
+
+            return temp;
+        }
+}
+public class Main{
+    public static void main(String args[]){
+        complex A = new complex(10,20);
+        complex B = new complex(30,40);
+        complex C =new complex();
+        complex D =new complex();
+        complex E =new complex();
+        complex F =new complex();
+       
+        A.printc();
+        B.printc();
+        C=C.add(A,B);
+        D=D.subtract(A, B);
+        E=E.multiply(A, B);
+        F=F.divide(A,B); 
+      System.out.print("Addition is:" );
+      C.printc();
+      System.out.print("Subtraction is:" );
+      D.printc();
+      System.out.print("Multiplication is:" );
+      E.printc();
+      System.out.print("Division is:" );
+      F.printc();
+    }
+}
