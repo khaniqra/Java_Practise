@@ -1,0 +1,131 @@
+import java.util.Scanner;
+
+class Employee{
+  String emp_name,add,mail_id;
+  int bp,da,hra,pf,club,gross,net,emp_id;
+  long mob;
+  
+  Employee(){
+    bp=0;
+    da=0;
+    hra=0;
+    pf=0;
+    club=0;
+    gross=0;
+    net=0;
+  }
+
+  void getData(){
+    Scanner s =  new Scanner(System.in);
+     System.out.print("Enter the mobile number of employee: \t");
+    mob=s.nextLong();
+    System.out.print("Enter the id of employee: \t");
+    emp_id=s.nextInt();
+    System.out.print("Enter the name of employee: \t");
+    emp_name=s.nextLine();  
+    System.out.print("Enter the address of employee: \t");
+    add=s.nextLine();
+    System.out.print("Enter the mail of employee: \t");
+    mail_id=s.nextLine(); 
+  }
+
+  void data(int p){
+    bp=p;
+    da = (int)(0.97*bp);
+    hra= (int)(0.1*bp);
+    pf = (int)(0.12*bp);
+    club = (int)(0.1*bp);
+  }
+
+  void salary(){
+    net=bp+da+hra;
+    gross=net-pf-club;
+  }
+
+  void printdata(){
+    System.out.println("Name:\t"+emp_name+"\nEmployee id\t"+emp_id+"\nAddress:\t"+add+"\nMail:\t"+mail_id+"\nMobile\t:"+mob);
+
+  }
+}
+
+class Programmer extends Employee{
+  void printsalary(){
+    System.out.println("The salary of Programmer is:\n 1.Net salary:\t"+net+"\n2.Gross salary:\t"+gross);
+  }
+}
+
+class Ass_prof extends Employee{
+  void printsalary(){
+    System.out.println("The salary of Assistant professor is:\n1.Net salary:\t"+net+"\n2.Gross salary:\t"+gross);
+  }
+}
+
+class Assc_prof extends Employee{
+  void printsalary(){
+    System.out.println("The salary of Associate professor is:\n 1.Net salary:\t"+net+"\n2.Gross salary:\t"+gross);
+  }
+}
+
+class Prof extends Employee{
+  void printsalary(){
+    System.out.println("The salary of Professor is:\n 1.Net salary:\t"+net+"\n2.Gross salary:\t"+gross);
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner s =new Scanner(System.in);
+    int designation,p;
+
+    System.out.println("Enter value associate diwth he designation of empolyee\n1.Programmer\n2.Assistant Professor\n3.Associate Professor\n4.Professor");
+    designation=s.nextInt();
+    switch(designation){
+      case 1:
+        Programmer obj1 = new Programmer();
+        System.out.print("Enter basic pay:\t");
+        p = s.nextInt();
+        obj1.getData();
+        obj1.data(p);
+        obj1.salary();
+        obj1.printdata();
+        obj1.printsalary();
+        break;
+
+      case 2:
+        Ass_prof obj2 = new Ass_prof();
+        System.out.print("Enter basic pay:\t");
+        p = s.nextInt();
+        obj2.getData();
+        obj2.data(p);
+        obj2.salary();
+        obj2.printdata();
+        obj2.printsalary();
+        break;
+
+      case 3:
+        Assc_prof obj3 = new Assc_prof();
+        System.out.print("Enter basic pay:\t");
+        p = s.nextInt();
+        obj3.getData();
+        obj3.data(p);
+        obj3.salary();
+        obj3.printdata();
+        obj3.printsalary();
+        break;
+
+      case 4:
+        Prof obj4 = new Prof();
+        System.out.print("Enter basic pay:\t");
+        p = s.nextInt();
+        obj4.getData();
+        obj4.data(p);
+        obj4.salary();
+        obj4.printdata();
+        obj4.printsalary();
+        break;
+
+      default:
+        System.out.println("Plz enter correct value");
+    }
+  }
+}
