@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+abstract class shape{
+  int a,b;
+  abstract public void printarea();
+}
+
+class rectangle extends shape{
+  public int area_rect;
+  public
+    void printarea(){
+      Scanner s= new Scanner(System.in);
+      System.out.println("Enter the length & breadth of rectangle");
+      a=s.nextInt();
+      b=s.nextInt();
+      area_rect=a*b;
+      System.out.println("Length of rectangle:"+a+"\nbreadth of rectangle:"+b);
+      System.out.println("The area of rectangle is:"+area_rect);
+      }
+}
+
+class triangle extends shape{
+  double area_tri;
+  public
+    void printarea(){
+       Scanner s= new Scanner(System.in);
+      System.out.println("\nEnter the base & height of triangle");
+      a=s.nextInt();
+      b=s.nextInt();
+      area_tri=0.5*a*b;
+      System.out.println("Base of triangle:"+a+"\nheight of triangle:"+b);
+      System.out.println("The area of Traingle is:"+area_tri);
+    }
+}
+
+class circle extends shape{
+  double area_circle;
+  public
+    void printarea(){
+       Scanner s= new Scanner(System.in);
+      System.out.println("\nEnter the radius");
+      a=s.nextInt();
+      area_circle=3.14*a*a;
+      System.out.println("Radius of circle:"+a);
+      System.out.println("The area of circle is:"+area_circle);
+    }
+}
+
+class Main {
+  public static void main(String[] args) {
+    rectangle r = new rectangle();
+    r.printarea();
+    triangle t = new triangle();
+    t.printarea();
+    circle c = new circle();
+    c.printarea();
+  }
+}
