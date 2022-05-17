@@ -1,0 +1,30 @@
+import java.util.Arrays;
+//import java.util.Collections;
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args)
+	{
+    	Scanner s=new Scanner(System.in);
+    	int n;	//Array Size Declaration
+    	System.out.println("Enter the number of elements :");
+    	n=s.nextInt();	//Array Size Initialization
+   	 
+    	int arr[]=new int[n];	//Array Declaration
+    	System.out.println("Enter the elements of the array :");
+    	for(int i=0;i<n;i++) 	//Array Initialization
+    	{
+        	arr[i]=s.nextInt();
+    	}
+   	 
+    	Arrays.sort(arr);	//Sorts the Array in Ascending Order
+ 
+    	System.out.printf("Sorted arr[] : %s",
+                      	Arrays.toString(arr));   //Prints the ascending sorted Array
+    // Arrays.sort(arr,Collections.reverseOrder());  //error
+    //Sorts array in descending order
+    
+    	System.out.printf("Sorted arr[] : %s",
+                      	Arrays.toString(arr));   //Prints the descending sorted Array
+	}
+}
