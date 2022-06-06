@@ -1,0 +1,236 @@
+/*Design and develop a context for given case study and implement an interface for Vehicles Consider the
+example of vehicles like bicycle, car, and bike. All Vehicles have common functionalities such as Gear
+Change, Speed up and apply breaks. Make an interface and put all these common functionalities. Bicycle,
+Bike, Car classes should be implemented for all these functionalities in their own class in their own way.*/
+
+import java.util.*;
+
+interface vehicle{
+  void gear(int a);
+  void speed();
+  void brakes();
+  void display();
+}
+
+class bicycle implements vehicle{
+  int gear,speed;
+
+  bicycle(){
+    System.out.println("Bicycle started successfully\n");
+
+    gear=1;
+    speed=10;
+  }
+  public void gear(int gearx){
+    if(gearx<7 && gearx>0){
+      gear=gearx;
+      System.out.println("Gear changed successfully\nCurrent gear is : "+ gear);
+    }
+    else{
+      System.out.println("Gear out of range");
+    }
+  }
+
+  public void speed(){
+    if((speed+5)<50){
+      speed+=5;
+      System.out.println("Bicycle speed increased\n current speed is:"+speed);
+    }
+    else{
+      System.out.println("Speed cannot be increased above 50 km/hr");
+    }
+  }
+  public void brakes(){
+    Scanner s =  new Scanner(System.in);
+    int x;
+    System.out.println("1.To decrease speed\n2.to stop");
+    x=s.nextInt();
+
+    if(x==1)
+      if((speed-5)>0){
+        speed-=5;
+        System.out.println("Speed reduced successfully\n current speed is:"+speed+"Km/hr\n");
+      }
+      else{
+        speed =0;
+        gear=0;
+        System.out.println("Bicycle stopped successfully\n");
+      }
+    if(x==2){
+      speed =0;
+        gear=0;
+        System.out.println("Bicycle stopped successfully\n");
+    }
+  }
+  public void display(){
+    System.out.println("Bicycle speed is "+speed+"km/hr and gear is "+gear);
+  }
+}
+
+class car implements vehicle{
+  int gear,speed;
+
+  car(){
+    System.out.println("Car started successfully\n");
+
+    gear=1;
+    speed=10;
+  }
+  public void gear(int gearx){
+    if(gearx<7 && gearx>0){
+      this.gear=gearx;
+      System.out.println("Gear changed successfully\nCurrent gear is : "+ gear);
+    }
+    else{
+      System.out.println("Gear out of range");
+    }
+  }
+
+  public void speed(){
+    if((speed+20)<150){
+      speed+=20;
+      System.out.println("Car speed increased\n current speed is:"+speed);
+    }
+    else{
+      System.out.println("Speed cannot be increased above 150 km/hr\n");
+    }
+  }
+  public void brakes(){
+    Scanner s =  new Scanner(System.in);
+    int x;
+    System.out.println("1.To decrease speed\n2.to stop");
+    x=s.nextInt();
+
+    if(x==1)
+      if((speed-20)>0){
+        speed-=20;
+        System.out.println("Speed reduced successfully\n current speed is:"+speed+"Km/hr\n");
+      }
+      else{
+        speed =0;
+        gear=0;
+        System.out.println("Car stopped successfully\n");
+      }
+    if(x==2){
+      speed =0;
+        gear=0;
+        System.out.println("Car stopped successfully\n");
+    }
+  }
+  public void display(){
+    System.out.println("Car speed is "+speed+"km/hr and gear is "+gear);
+  }
+}
+
+class bike implements vehicle{
+  int gear,speed;
+
+  bike(){
+    System.out.println("Bike started successfully\n");
+
+    gear=1;
+    speed=10;
+  }
+  public void gear(int gearx){
+    if(gearx<6&& gearx>0){
+      this.gear=gearx;
+      System.out.println("Gear changed successfully\nCurrent gear is : "+ gear);
+    }
+    else{
+      System.out.println("Gear out of range");
+    }
+  }
+
+  public void speed(){
+    if((speed+20)<100){
+      speed+=20;
+      System.out.println("Bike speed increased\n current speed is:"+speed);
+    }
+    else{
+      System.out.println("Speed cannot be increased above 100 km/hr\n");
+    }
+  }
+  public void brakes(){
+    Scanner s =  new Scanner(System.in);
+    int x;
+    System.out.println("1.To decrease speed\n2.to stop");
+    x=s.nextInt();
+
+    if(x==1)
+      if((speed-20)>0){
+        speed-=20;
+        System.out.println("Speed reduced successfully\n current speed is:"+speed+"Km/hr\n");
+      }
+      else{
+        speed =0;
+        gear=0;
+        System.out.println("Bike stopped successfully\n");
+      }
+    if(x==2){
+      speed =0;
+        gear=0;
+        System.out.println("Bike stopped successfully\n");
+    }
+  }
+  public void display(){
+    System.out.println("Bike speed is "+speed+"km/hr and gear is "+gear);
+  }
+}
+
+public class Main{
+  public static void main(String[] args){
+    Scanner s=new Scanner(System.in);
+    vehicle v=null;
+    System.out.println("===================");
+    int y;
+    bb:
+      do{
+        System.out.println("Select vehicle\n1.Bicycle \n2.Car\n3.Bike\n4.Exit\nChoice:");
+        y=s.nextInt();
+        System.out.println("===================");
+        if(y==1)
+          v=new bicycle();
+        else if (y==2)
+          v=new car();
+        else if(y==3)
+          v=new bike();
+        else if(y==4)
+          break bb;
+        else
+          System.out.println("INVALID");
+      System.out.println("===================");
+        if(0<y && y<4){
+          aa:
+            do{
+              System.out.println("1.Speed up\n2.Change gear\n3.Apply brakes\n4.Display Vehicle status\n5.Change vehicle/Exit\nChoice:");
+              int z=s.nextInt();
+              System.out.println("===================");
+              switch(z){
+                case 1:
+                  v.speed();
+                  System.out.println("===================");
+                  break;
+                case 2:
+                  System.out.println("Which gear you want? ");
+                  int a=s.nextInt();
+                  v.gear(a);
+                  System.out.println("===================");
+                  break;
+                case 3:
+                  v.brakes();
+                  System.out.println("===================");
+                  break;
+                case 4:
+                  v.display();
+                  System.out.println("===================");
+                  break;
+                case 5:
+                  break aa;
+                default:
+                  System.out.println("Invalid Input");
+              }
+            }while(true);
+        }
+   }while(y!=4);
+  }
+}
